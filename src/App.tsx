@@ -3,6 +3,7 @@ import './App.css';
 import { LiftDB } from './utils/dexie';
 import { useLiveQuery } from "dexie-react-hooks";
 
+import Lift from './components/LiftList';
 
 function App() {
 
@@ -28,6 +29,8 @@ function App() {
     <div className="App">
       Hello, World!
       <br />
+
+      <Lift lifts={lifts} />
 
       {
         lifts?.map(l => (

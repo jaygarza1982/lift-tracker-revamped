@@ -7,6 +7,13 @@ export interface Lift {
     deletedDatetime?: Date | undefined;
 }
 
+export interface ILiftData {
+    name: string | undefined;
+    weight: number | undefined;
+    reps: number | undefined;
+    category: string | undefined;
+}
+
 export class LiftDexie extends Dexie {
     // 'Lifts' is added by dexie when declaring the stores()
     // We just tell the typing system this is the case
