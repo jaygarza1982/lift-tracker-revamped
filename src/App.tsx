@@ -5,43 +5,15 @@ import { useLiveQuery } from "dexie-react-hooks";
 
 import LiftList from './components/LiftList';
 import CategoryList from './components/CategoryList';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
-
-  // useEffect(() => {
-  //     (async () => {
-  //       try {
-  //         const liftObj = {
-  //           name: 'lift name',
-  //           reps: 10,
-  //           weight: 25,
-  //           category: 'pull'
-  //         }
-  //         const insertres = await LiftDB.insert(liftObj);
-  //         console.log(insertres);
-  //       } catch (error) {
-  //         console.log('Error inserting', error);
-  //       }
-  //     })();
-  // });
-
-  const lifts = useLiveQuery(() => LiftDB.Lifts.toArray())
-
   return (
-    <div className="App">
-      Hello, World!
-      <br />
-
-      <CategoryList lifts={lifts} />
-
-      <LiftList lifts={lifts} />
-
-      {
-        lifts?.map(l => (
-          l.JSONData
-        ))
-      }
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<>Hello</>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

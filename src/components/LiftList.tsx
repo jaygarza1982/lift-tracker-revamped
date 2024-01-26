@@ -4,10 +4,11 @@ import SafeParse from '../utils/SafeParse';
 
 interface ILiftProps {
     lifts?: Lift[] | undefined;
+    category?: string | undefined;
 } 
 
 const LiftList = (props: ILiftProps) => {
-    const lifts = props.lifts;
+    const { lifts, category } = props;
     
     return (
         <>
@@ -15,6 +16,10 @@ const LiftList = (props: ILiftProps) => {
                 lifts?.map(lift => {
                     const liftData = SafeParse<ILiftData>(lift.JSONData);
 
+                    // If category defined and lift is not in the category, return nothing
+                    if (category && category !== liftData?.category) return <></>
+
+                    // If here we either have no category, or we do and it is our defined category
                     return (
                         <>
                             <div>Lift: {liftData?.name}</div>
