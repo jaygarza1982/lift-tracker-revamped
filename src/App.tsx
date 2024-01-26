@@ -3,7 +3,8 @@ import './App.css';
 import { LiftDB } from './utils/dexie';
 import { useLiveQuery } from "dexie-react-hooks";
 
-import Lift from './components/LiftList';
+import LiftList from './components/LiftList';
+import CategoryList from './components/CategoryList';
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
   //         const liftObj = {
   //           name: 'lift name',
   //           reps: 10,
-  //           weight: 25
+  //           weight: 25,
+  //           category: 'pull'
   //         }
   //         const insertres = await LiftDB.insert(liftObj);
   //         console.log(insertres);
@@ -30,7 +32,9 @@ function App() {
       Hello, World!
       <br />
 
-      <Lift lifts={lifts} />
+      <CategoryList lifts={lifts} />
+
+      <LiftList lifts={lifts} />
 
       {
         lifts?.map(l => (
