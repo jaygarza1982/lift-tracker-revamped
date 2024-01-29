@@ -16,6 +16,8 @@ const LiftList = (props: ILiftProps) => {
                 lifts?.map(lift => {
                     const liftData = SafeParse<ILiftData>(lift.JSONData);
 
+                    // TODO: TEST THIS LOGIC
+
                     // If category defined and lift is not in the category, return nothing
                     if (category && category !== liftData?.category) return <></>
 
