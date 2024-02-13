@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './App.css';
+import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LiftsByCategory from './components/LiftsByCategory';
 import CategoryViewer from './components/CategoryViewer';
