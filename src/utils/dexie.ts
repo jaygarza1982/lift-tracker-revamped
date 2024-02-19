@@ -1,5 +1,7 @@
 import Dexie, { IndexableType, Table } from 'dexie';
 
+
+// Any new fields to these MUST be | undefined because of existing users data
 export interface Lift {
     id?: number;
     JSONData: string;
@@ -7,6 +9,7 @@ export interface Lift {
     deletedDatetime?: Date | undefined;
 }
 
+// Any new fields to these MUST be | undefined because of existing users data
 export interface ILiftData {
     name: string | undefined;
     weight: number | undefined;

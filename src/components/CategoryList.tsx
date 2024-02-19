@@ -36,7 +36,7 @@ const CategoryList = (props: ILiftProps) => {
     
     return (
         <>
-            <NewLiftForm />
+            <NewLiftForm lifts={lifts} />
             {
                 categories?.length > 0 ?
                 categories?.map(cat => {
