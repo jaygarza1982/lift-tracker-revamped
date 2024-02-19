@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LiftsByCategory from './components/LiftsByCategory';
@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<>Hello</>} />
+        <Route path='/' element={<CategoryViewer />} />
         <Route path='/categories' element={<CategoryViewer />} />
         <Route path='/lifts/:category?' element={<LiftsByCategory />} />
         <Route path='/lift/:category/:name' element={<LiftByNameViewer />} />

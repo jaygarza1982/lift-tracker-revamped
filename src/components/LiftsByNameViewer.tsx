@@ -37,7 +37,7 @@ const LiftByNameViewer = () => {
 
     return name ?
         <div className="margin lift-by-name">
-            <h1>{ name }</h1>
+            <h1>{ category } | { name }</h1>
             <div className="margin">
                 <div className='margin-bottom'>
                     <NumberInput
