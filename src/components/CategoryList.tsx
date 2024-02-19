@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Lift, ILiftData } from '../utils/dexie';
-import SafeParse from '../utils/SafeParse';
+import { Lift } from '../utils/dexie';
 import { ClickableTile } from '@carbon/react';
 import { useNavigate } from 'react-router-dom';
 import NewLiftForm from './NewLiftForm';
+import { getUniqueCategories } from '../utils/utils';
 
 interface ILiftProps {
     lifts?: Lift[] | undefined;
@@ -31,8 +31,9 @@ const CategoryDisplay = (props: ICategoryDisplayProps) => {
 
 const CategoryList = (props: ILiftProps) => {
     const lifts = props.lifts;
-    const catSet = new Set(lifts?.map(l => SafeParse<ILiftData>(l.JSONData)?.category));
-    const categories = Array.from(catSet);
+
+    // Sort categories alphabetically
+    const categories = getUniqueCategories(lifts || []).sort((a, b) => a?.localeCompare(b || '') || 0);
     
     return (
         <>
