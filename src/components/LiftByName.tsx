@@ -11,6 +11,7 @@ interface ILiftByNameProps {
 interface ILiftProps {
     reps: number | undefined;
     weight: number | undefined;
+    date: Date | undefined;
 }
 
 const LiftDisplay = (props: ILiftProps) => {
@@ -19,7 +20,7 @@ const LiftDisplay = (props: ILiftProps) => {
             <div className="lift-display">
                 <div>Reps: {props?.reps}</div>
                 <div>Weight: {props?.weight}</div>
-                <div>Date</div>
+                <div>{ props?.date?.toLocaleString() }</div>
             </div>
         </Tile>
     )
@@ -28,16 +29,17 @@ const LiftDisplay = (props: ILiftProps) => {
 const LiftByName = (props: ILiftByNameProps) => {
 
     const { name, lifts } = props;
+    const sortedLifts = lifts?.sort((a, b) => b.insertedDatetime.getTime() - a.insertedDatetime.getTime());
 
     return (
         <>
             {
-                lifts?.map(l => {
+                sortedLifts?.map(l => {
                     const liftData = SafeParse<ILiftData>(l.JSONData);
 
                     return liftData?.name == name ?
                     <div className="margin-bottom">
-                        <LiftDisplay reps={liftData?.reps} weight={liftData?.weight} />
+                        <LiftDisplay reps={liftData?.reps} weight={liftData?.weight} date={l.insertedDatetime} />
                     </div>
                     :
                     <></>
