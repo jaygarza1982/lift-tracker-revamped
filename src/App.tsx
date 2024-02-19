@@ -12,7 +12,7 @@ function App() {
         <Route path='/' element={<>Hello</>} />
         <Route path='/categories' element={<CategoryViewer />} />
         <Route path='/lifts/:category?' element={<LiftsByCategory />} />
-        <Route path='/lift/:name' element={<LiftByNameViewer />} />
+        <Route path='/lift/:category/:name' element={<LiftByNameViewer />} />
       </Routes>
     </BrowserRouter>
   );
