@@ -35,6 +35,12 @@ const LiftByNameViewer = () => {
 
     const handleFocus = (e: React.FocusEvent<HTMLInputElement, Element>) => e.target.select();
 
+    const handleKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key == 'Enter') {
+            formik.handleSubmit();
+        }
+    }
+
     return name ?
         <div className="margin lift-by-name">
             <h1>{ category } | { name }</h1>
@@ -49,6 +55,7 @@ const LiftByNameViewer = () => {
                         hideSteppers
                         value={formik.values.reps}
                         onChange={formik.handleChange}
+                        onKeyUp={handleKeyUp}
                     />
                 </div>
                 <div className='margin-bottom'>
@@ -61,6 +68,7 @@ const LiftByNameViewer = () => {
                         hideSteppers
                         value={formik.values.weight}
                         onChange={formik.handleChange}
+                        onKeyUp={handleKeyUp}
                     />
                 </div>
                 <div className='right margin-bottom'>
