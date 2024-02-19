@@ -22,7 +22,7 @@ const NewLiftForm = () => {
             if (values.name == '') return;
             if (values.category == '') return;
 
-            navigate(`/lift/${values.category}/${values.name}`);
+            navigate(`/lift/${values.category.trim()}/${values.name.trim()}`);
         }
     });
 

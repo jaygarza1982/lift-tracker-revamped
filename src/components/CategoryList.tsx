@@ -43,7 +43,7 @@ const CategoryList = (props: ILiftProps) => {
                     return (
                         <CategoryDisplay category={cat} />
                     )
-                }) : <div>No categories found</div>
+                }) : <div className="margin">Add a lift to see categories</div>
             }
         </>
     )
