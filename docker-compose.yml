@@ -3,7 +3,7 @@ version: '3'
 services:
 
   lift-tracker:
-      container_name: "lift-tracker"
+      container_name: "lift-tracker-revamped"
       build:
           context: ./
       volumes:
