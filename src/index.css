@@ -24,3 +24,8 @@ code {
 .margin-bottom {
   margin-bottom: 16px;
 }
+
+.lift-display-grid {
+  display: grid;
+  grid-template-columns: 1fr 72px;
+}
